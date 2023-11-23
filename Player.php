@@ -14,7 +14,34 @@
     
     class Player
     {
-        
+        /**
+         * @var string $nickname
+         */
+        private $nickname;
+
+        /**
+         * @var int $nivel
+         */
+        private $nivel;
+
+        /**
+         * @var Inventario
+         */
+        private $inventario;
+
+        /**
+         * Construtor da Classe Player
+         * 
+         * @param string $nickname
+         * @param int $nivel
+         * @param Inventario $inventario
+         */
+        public function __construct($nickname, $nivel, $inventario)
+        {
+            $this->setNickname($nickname);
+            $this->setNivel($nivel);
+            $this->setInventario($inventario);
+        }
     }
 
 ?>
