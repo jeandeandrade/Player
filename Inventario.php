@@ -33,6 +33,36 @@
             $this->capacidadeMaxima = $capacidadeMaxima;
             $this->itens = [];
         }
+
+        /**
+        * Obtém a capacidade máxima do inventário
+        * 
+        * @return int
+        */
+        public function getCapacidadeMaxima()
+        {
+            return $this->capacidadeMaxima;
+        }
+
+        /**
+        * Define a capacidade máxima do inventário
+        * 
+        * @param int $capacidadeMaxima
+        */
+        public function setCapacidadeMaxima($capacidadeMaxima)
+        {
+            $this->capacidadeMaxima = $capacidadeMaxima;
+        }
+
+        /**
+        * Obtem os itens do inventario
+        * 
+        * @return array
+        */
+        public function getItens()
+        {
+            return $this->itens;
+        }
     }
     
 
