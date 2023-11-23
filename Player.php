@@ -42,6 +42,36 @@
             $this->setNivel($nivel);
             $this->setInventario($inventario);
         }
+
+        public function getNickname()
+        {
+            return $this->nickname;
+        }
+
+        public function getNivel()
+        {
+            return $this->nivel;
+        }
+
+        public function getInventario()
+        {
+            return $this->inventario;
+        }
+
+        public function setNickname($nickname)
+        {
+            $this->nickname = $nickname;
+        }
+
+        public function setNivel($nivel)
+        {
+            $this->nivel = $nivel;
+        }
+
+        public function setInventario($inventario)
+        {
+            $this->inventario = $inventario;
+        }
     }
 
 ?>
