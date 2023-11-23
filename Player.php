@@ -12,5 +12,9 @@
      * @method void subirNivel()
     */
     
+    class Player
+    {
+        
+    }
 
 ?>
