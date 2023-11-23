@@ -1,5 +1,7 @@
 <?php
 
+require_once('Inventario.php');
+
     /**
      * @method string getNickname()
      * @method int getNivel()
@@ -36,41 +38,116 @@
          * @param int $nivel
          * @param Inventario $inventario
          */
-        public function __construct($nickname, $nivel, $inventario)
+        public function __construct(string $nickname, int $nivel, Inventario $inventario)
         {
             $this->setNickname($nickname);
             $this->setNivel($nivel);
             $this->setInventario($inventario);
         }
 
+        /**
+         * Obtem o nickname do jogador
+         * 
+         * @return string
+         */
         public function getNickname()
         {
             return $this->nickname;
         }
 
+        /**
+         * Obtem o nivel do jogador
+         * 
+         * @return int
+         */
         public function getNivel()
         {
             return $this->nivel;
         }
 
+        /**
+         * Obtem o inventario do jogador
+         * 
+         * @return Inventario
+         */
         public function getInventario()
         {
             return $this->inventario;
         }
 
-        public function setNickname($nickname)
+        /**
+         * Define o nickname do jogador
+         * 
+         * @param string $nickname
+         */
+        public function setNickname(string $nickname)
         {
             $this->nickname = $nickname;
         }
 
-        public function setNivel($nivel)
+        /**
+         * Define o nivel do jogador
+         * 
+         * @param int $nivel
+         */
+        public function setNivel(int $nivel)
         {
             $this->nivel = $nivel;
         }
 
-        public function setInventario($inventario)
+        /**
+         * Define o inventário do jogador
+         * 
+         * @param Inventario $inventario
+         */
+        public function setInventario(Inventario $inventario)
         {
             $this->inventario = $inventario;
+        }
+
+        /**
+         * Coleta um item para o inventário
+         * 
+         * @param Item $item
+         */
+        public function coletarItem(Item $item)
+        {
+            // Verifica de há espaço no inventario
+            if ($this->inventario->adicionarItem($item)) {
+                echo "Item coletado";
+            } else {
+                echo "Inventario cheio";
+            }
+        }
+
+        /**
+         * Solta um item do inventário do jogador
+         * 
+         * @param Item $item
+         */
+        public function soltarItem(Item $item)
+        {
+            $this->inventario->removerItem($item);
+            echo "Item removido";
+        }
+
+        /**
+        * Faz o jogador subir de nível e aumenta a capacidade do inventário.
+        */
+        public function subirNivel()
+        {
+            $this->nivel++;
+            $this->aumentarCapacidadeDoInventario();
+            echo "Você subiu de nivel {$this->nivel}";
+        }
+
+        /**
+        * Aumenta a capacidade do inventário do jogador conforme seu nível.
+        */
+        public function aumentarCapacidadeDoInventario()
+        {
+            $aumento = $this->nivel * 3;
+            $this->inventario->setCapacidadeMaxima($aumento);
         }
     }
 
