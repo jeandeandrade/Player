@@ -63,6 +63,40 @@
         {
             return $this->itens;
         }
+
+        /**
+        * Adiciona um item ao inventário.
+        *
+        * @param Item $item O item a ser adicionado ao inventário.
+        * @return bool Retorna verdadeiro se o item foi adicionado com sucesso, caso contrário retorna falso.
+        */
+        public function adicionarItem(Item $item)
+        {
+            
+        }
+
+
+        /**
+        * Remove um item do inventário.
+        *
+        * @param Item $item O item a ser removido do inventário.
+        * @return bool Retorna verdadeiro se o item foi removido com sucesso, caso contrário retorna falso.
+        */
+        public function removerItem(Item $item)
+        {
+
+        }
+
+
+        /**
+        * Calcula a capacidade livre no inventário.
+        *
+        * @return int A capacidade livre no inventário.
+        */
+        public function capacidadeLivre()
+        {
+
+        }
     }
     
 
