@@ -21,7 +21,7 @@
         /**
         * @var array 
         */
-        private $itens;
+        private $itens = array();
 
         /**
         * Constructor da classe Inventário
@@ -72,7 +72,24 @@
         */
         public function adicionarItem(Item $item)
         {
-            
+            /**
+             * Verifica se o item foi adicionado
+             */
+            foreach($this->itens as $verificaItem) {
+                if($verificaItem === $item) {
+                    return false;
+                }
+            }
+
+            /**
+             * Adiciona o item no inventario
+             */
+            $this->itens[] = $item;
+
+            /**
+             * @return true Para indicar que o item foi adicionado com sucesso
+             */
+            return true;
         }
 
 
@@ -84,7 +101,14 @@
         */
         public function removerItem(Item $item)
         {
-
+            $key = array_search($item, $this->itens);
+            if ($key !== false) {
+                unset($this->itens[$key]);
+                $this->itens = array_values($this->itens);
+                return true; 
+            } else {
+                return false;
+            }
         }
 
 
@@ -95,7 +119,12 @@
         */
         public function capacidadeLivre()
         {
+            $tamanhoTotal = 0;
 
+            foreach($this->itens as $item) {
+                $tamanhoTotal += $item->getCapacidadeMaxima();
+            }
+            return $this->capacidadeMaxima - $tamanhoTotal;
         }
     }
     
