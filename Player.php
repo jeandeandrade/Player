@@ -116,7 +116,7 @@ require_once('Inventario.php');
             if ($this->inventario->adicionarItem($item)) {
                 return "<br>Item {$item->getName()} coletado<br>";
             } else {
-                return "<br>Inventário cheio. <br> Não foi possível coletar o item {$item->getName()}";
+                return "<br>Inventário cheio. <br> Não foi possível coletar o item {$item->getName()}<br>";
             }
         }
 

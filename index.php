@@ -25,6 +25,7 @@ echo "Coletando itens para o Jogador 1...<br>";
 echo $player1->coletarItem($itemAtaque1) . "<br>"; // Feedback sobre a operação
 echo $player1->coletarItem($itemDefesa1) . "<br>"; // Feedback sobre a operação
 echo $player1->coletarItem($itemMagia1) . "<br>"; // Feedback sobre a operação
+echo $player1->coletarItem($itemDefesa1) . "<br>"; // Feedback sobre a operação
 echo "Coletando itens para o Jogador 2...<br>";
 echo $player2->coletarItem($itemAtaque2) . "<br>"; // Feedback sobre a operação
 echo $player2->coletarItem($itemDefesa2) . "<br>"; // Feedback sobre a operação
