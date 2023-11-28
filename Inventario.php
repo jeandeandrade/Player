@@ -77,19 +77,20 @@
              */
             foreach($this->itens as $verificaItem) {
                 if($verificaItem === $item) {
+                    echo "Item já está no inventário";
                     return false;
                 }
             }
 
-            /**
-             * Adiciona o item no inventario
-             */
-            $this->itens[] = $item;
-
-            /**
-             * @return true Para indicar que o item foi adicionado com sucesso
-             */
-            return true;
+            // Adiciona o item no inventário
+            if (count($this->itens) < $this->capacidadeMaxima) {
+                $this->itens[] = $item;
+                echo "Item coletado";
+                return true;
+            } else {
+                echo "Inventário cheio";
+                return false;
+            }
         }
 
 
@@ -122,7 +123,7 @@
             $tamanhoTotal = 0;
 
             foreach($this->itens as $item) {
-                $tamanhoTotal += $item->getCapacidadeMaxima();
+                $tamanhoTotal += $item->getTamanho();
             }
             return $this->capacidadeMaxima - $tamanhoTotal;
         }
