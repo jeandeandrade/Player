@@ -112,11 +112,11 @@ require_once('Inventario.php');
          */
         public function coletarItem(Item $item)
         {
-            // Verifica de há espaço no inventario
+            // Verifica se há espaço no inventário
             if ($this->inventario->adicionarItem($item)) {
-                echo "Item coletado";
+                return "<br>Item {$item->getName()} coletado<br>";
             } else {
-                echo "Inventario cheio";
+                return "<br>Inventário cheio. <br> Não foi possível coletar o item {$item->getName()}";
             }
         }
 
@@ -138,7 +138,7 @@ require_once('Inventario.php');
         {
             $this->nivel++;
             $this->aumentarCapacidadeDoInventario();
-            echo "Você subiu de nivel {$this->nivel}";
+            echo "Você subiu de nivel {$this->nivel}<br><br>";
         }
 
         /**
