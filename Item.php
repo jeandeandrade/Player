@@ -86,4 +86,23 @@
         }
     }
 
+    class Ataque extends Item {
+        public function __construct($name, $tamanho) {
+            parent::__construct($name, $tamanho, 'Ataque');
+        }
+    }
+    
+    class Defesa extends Item {
+        public function __construct($name, $tamanho) {
+            parent::__construct($name, $tamanho, 'Defesa');
+        }
+    }
+    
+    class Magia extends Item {
+        public function __construct($name, $tamanho) {
+            parent::__construct($name, $tamanho, 'Magia');
+        }
+    }
+    
+
 ?>
